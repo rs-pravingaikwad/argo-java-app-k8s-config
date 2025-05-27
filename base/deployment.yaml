@@ -17,7 +17,7 @@ spec:
       containers:
       - name: argo-java-app-container
         # This will be overridden by overlays if needed
-        image: rspgaikwad/argo-java-app:v1.0.0 # Base image
+        image: rspgaikwad/argo-java-app:v1.0.3 # Base image
         ports:
         - containerPort: 8080
         resources:
