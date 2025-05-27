@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: argo-java-app-container
-        image: rspgaikwad/argo-java-app:v1.0.3
+        image: rspgaikwad/argo-java-app:v1.0.4
         ports:
         - containerPort: 8080
         resources:
