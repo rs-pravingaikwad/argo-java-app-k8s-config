@@ -4,10 +4,9 @@ metadata:
   name: argo-java-app-service
 spec:
   selector:
-    app: argo-java-app # This must match the labels of your pods (from Deployment)
+    app: argo-java-app 
   ports:
     - protocol: TCP
-      port: 80       # Port the service will be available on within the cluster
-      targetPort: 8080 # Port on the pods that the service will forward traffic to (your app's port)
-  type: LoadBalancer # Exposes the service externally using a cloud provider's load balancer (AWS ELB/NLB for EKS)
-                     # For internal access only, you could use ClusterIP
+      port: 80
+      targetPort: 8080
+  type: LoadBalancer
