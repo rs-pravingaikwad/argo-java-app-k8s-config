@@ -17,7 +17,7 @@ spec:
       containers:
       - name: argo-java-app-container
         # IMPORTANT: Replace rspgaikwad with your actual Docker Hub username
-        image: rspgaikwad/argo-java-app:v1.0.1
+        image: rspgaikwad/argo-java-app:v1.0.2
         ports:
         - containerPort: 8080 # The port your Spring Boot app runs on (EXPOSEd in Dockerfile)
         resources:
