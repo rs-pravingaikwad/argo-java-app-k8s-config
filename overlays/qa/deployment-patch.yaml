@@ -1,0 +1,17 @@
+# overlays/qa/deployment-patch.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: argo-java-app # This must match the name in the base deployment
+spec:
+  replicas: 1 # QA specific replica count
+  template:
+    spec:
+      containers:
+      - name: argo-java-app-container # This must match the container name in base
+        image: rspgaikwad/argo-java-app:v1.0.0-qa # QA specific image tag
+        env:
+        - name: ENVIRONMENT_NAME
+          value: "QA"
+        - name: JAVA_TOOL_OPTIONS # Example: QA specific JVM options
+          value: "-Xms128m -Xmx256m"

@@ -1,0 +1,10 @@
+# overlays/qa/qa-config.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: argo-java-app-qa-config
+data:
+  application.properties: |
+    server.port=8080
+    logging.level.com.example.argojavaapp=DEBUG
+    qa.specific.property=HelloFromQAConfig

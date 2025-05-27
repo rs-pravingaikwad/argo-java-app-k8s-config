@@ -1,0 +1,24 @@
+# overlays/qa/kustomization.yaml
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+# Inherit from the base
+bases:
+  - ../../base
+
+# Namespace for all resources in this overlay
+namespace: qa
+
+# Patches to apply to the base resources
+patchesStrategicMerge:
+  - deployment-patch.yaml
+
+# Additional resources specific to QA
+resources:
+  - qa-config.yaml # Add this if you created the qa-config.yaml
+
+# You can also modify image tags here globally for this overlay
+images:
+  - name: rspgaikwad/argo-java-app # Original image name used in base
+    newName: rspgaikwad/argo-java-app # New name (can be same)
+    newTag: v1.0.0-qa # QA specific tag (this duplicates setting it in patch but is another Kustomize way)
