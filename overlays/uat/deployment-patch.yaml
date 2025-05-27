@@ -1,0 +1,16 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: argo-java-app
+spec:
+  replicas: 2
+  template:
+    spec:
+      containers:
+      - name: argo-java-app-container
+        image: rspgaikwad/argo-java-app:v1.0.0-uat
+        env:
+        - name: ENVIRONMENT_NAME
+          value: "UAT"
+        - name: JAVA_TOOL_OPTIONS
+          value: "-Xms128m -Xmx256m"

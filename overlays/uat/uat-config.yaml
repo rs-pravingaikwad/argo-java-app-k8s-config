@@ -1,0 +1,10 @@
+# overlays/uat/uat-config.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: argo-java-app-uat-config
+data:
+  application.properties: |
+    server.port=8080
+    logging.level.com.example.argojavaapp=DEBUG
+    uat.specific.property=HelloFromUATConfig
