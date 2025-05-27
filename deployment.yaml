@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: argo-java-app
+  labels:
+    app: argo-java-app
+spec:
+  replicas: 2 # You can change the number of desired instances
+  selector:
+    matchLabels:
+      app: argo-java-app
+  template:
+    metadata:
+      labels:
+        app: argo-java-app
+    spec:
+      containers:
+      - name: argo-java-app-container
+        # IMPORTANT: Replace rspgaikwad with your actual Docker Hub username
+        image: rspgaikwad/argo-java-app:v1.0.0
+        ports:
+        - containerPort: 8080 # The port your Spring Boot app runs on (EXPOSEd in Dockerfile)
+        resources:
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+          requests:
+            memory: "256Mi"
+            cpu: "250m"
