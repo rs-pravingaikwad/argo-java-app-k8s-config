@@ -8,7 +8,7 @@ pipelines:
     materials:
       test-material-2:
         git: https://github.com/rs-pravingaikwad/argo-java-app-k8s-config.git
-        branch: "main"
+        branch: ${TAG}
         shallow_clone: false
         auto_update: true
     stages:
@@ -18,19 +18,13 @@ pipelines:
         clean_workspace: false
         approval:
           type: success
-          allow_only_on_success: false
-        jobs:
-          Test-Job-2:
-            timeout: 0
-            environment_variables:
-              Test: test
-            tasks:
-            - exec:
-                command: env
-            - exec:
-                arguments:
-                - "Using tag: ${TAG}"
-                command: echo
-                run_if: passed
+
+          jobs:
+            Test-Job-2:
+              tasks:
+                - exec:
+                    command: echo
+                    arguments:
+                      - "Checked out tag: ${TAG}"
     parameters:
       TAG: 'refs/tags/v1.0.0'
