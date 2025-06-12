@@ -27,8 +27,8 @@ pipelines:
             tasks:
             - exec:
                 arguments:
-                - ${TAG}
+                - "Using tag: ${TAG}"
                 command: echo
                 run_if: passed
     parameters:
-      TAG: 'v1.0.0'
+      TAG: 'refs/tags/v1.0.0'
