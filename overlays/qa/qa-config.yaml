@@ -5,6 +5,6 @@ metadata:
   name: argo-java-app-qa-config
 data:
   application.properties: |
-    server.port=8080
+    server.port=8081
     logging.level.com.example.argojavaapp=DEBUG
     qa.specific.property=HelloFromQAConfig
