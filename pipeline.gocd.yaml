@@ -24,6 +24,6 @@ pipelines:
             - exec:
                 command: echo            
                 arguments:
-                - "Using tag: ${TAG}"
+                - "Using tag: #{TAG}"
     parameters:
       TAG: 'refs/tags/v1.0.0'
