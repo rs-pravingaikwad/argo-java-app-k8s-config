@@ -1,0 +1,34 @@
+format_version: 10
+pipelines:
+  test-pipeline-2:
+    group: My-Pipelines
+    label_template: ${COUNT}
+    lock_behavior: none
+    display_order: -1
+    materials:
+      test-material-2:
+        git: https://github.com/rs-pravingaikwad/argo-java-app-k8s-config.git
+        shallow_clone: false
+        auto_update: true
+        branch: main
+    stages:
+    - Test-Stage-2:
+        fetch_materials: true
+        keep_artifacts: false
+        clean_workspace: false
+        approval:
+          type: success
+          allow_only_on_success: false
+        jobs:
+          Test-Job-2:
+            timeout: 0
+            environment_variables:
+              Test: test
+            tasks:
+            - exec:
+                arguments:
+                - ${TAG}
+                command: echo
+                run_if: passed
+    parameters:
+      TAG: ''
