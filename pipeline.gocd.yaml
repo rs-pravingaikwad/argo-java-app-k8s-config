@@ -31,4 +31,4 @@ pipelines:
                 command: echo
                 run_if: passed
     parameters:
-      TAG: ''
+      TAG: 'v1.0.0'
