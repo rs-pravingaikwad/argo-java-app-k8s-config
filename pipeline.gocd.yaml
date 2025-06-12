@@ -26,6 +26,8 @@ pipelines:
               Test: test
             tasks:
             - exec:
+                command: env
+            - exec:
                 arguments:
                 - "Using tag: ${TAG}"
                 command: echo
