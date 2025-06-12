@@ -8,9 +8,9 @@ pipelines:
     materials:
       test-material-2:
         git: https://github.com/rs-pravingaikwad/argo-java-app-k8s-config.git
+        branch: "${TAG}"
         shallow_clone: false
         auto_update: true
-        branch: main
     stages:
     - Test-Stage-2:
         fetch_materials: true
